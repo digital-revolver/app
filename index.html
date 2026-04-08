@@ -611,6 +611,109 @@ section {
   box-shadow: 0 0 30px rgba(168,85,247,0.3);
 }
 
+/* ============ WEB DEVELOPMENT ============ */
+.webdev {
+  position: relative;
+}
+
+.webdev-sub {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  color: var(--muted);
+  max-width: 550px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.webdev-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.webdev-item {
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.webdev-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.5s ease;
+}
+
+.webdev-item:hover::after {
+  width: 100%;
+}
+
+.webdev-item:hover {
+  border-color: rgba(168,85,247,0.15);
+  box-shadow: 0 10px 40px rgba(168,85,247,0.07);
+  transform: translateY(-4px);
+}
+
+.webdev-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(168,85,247,0.2);
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  transition: all 0.4s ease;
+}
+
+.webdev-item:hover .webdev-icon {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 25px rgba(168,85,247,0.3);
+}
+
+.webdev-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.3px;
+}
+
+.webdev-item p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+
+.webdev-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.webdev-tags span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid rgba(168,85,247,0.15);
+  color: var(--accent-2);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.webdev-item:hover .webdev-tags span {
+  border-color: rgba(168,85,247,0.3);
+}
+
 /* ============ WHY US ============ */
 .why-us {
   position: relative;
@@ -978,6 +1081,9 @@ section {
     grid-row: span 1;
     min-height: 350px;
   }
+  .webdev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1021,6 +1127,9 @@ section {
     padding: 1.5rem;
   }
   .service-number { font-size: 2.5rem; }
+
+  .webdev-grid { grid-template-columns: 1fr; }
+  .webdev-item { padding: 1.5rem; }
 
   .why-item { padding: 1.5rem 1.25rem; }
 
@@ -1106,6 +1215,7 @@ section {
 <div class="mobile-nav" id="mobileNav">
   <a href="#work" onclick="closeMobileNav()">Work</a>
   <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#webdev" onclick="closeMobileNav()">Web Dev</a>
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#contact" onclick="closeMobileNav()">Contact</a>
 </div>
@@ -1119,6 +1229,7 @@ section {
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#webdev">Web Dev</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1213,36 +1324,66 @@ section {
   </div>
   <div class="services-scroll">
     <div class="service-card reveal delay-1">
-      <div class="service-icon">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.764m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
-      </div>
-      <div class="service-number">01</div>
       <h3>Graphics & Logos</h3>
       <p>Crafting unique visual identities that resonate with your brand's essence. From logos to full brand guidelines, we bring your vision to life with precision and creativity.</p>
     </div>
     <div class="service-card reveal delay-2">
-      <div class="service-icon">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/></svg>
-      </div>
-      <div class="service-number">02</div>
       <h3>Content Creation</h3>
       <p>Compelling content that tells your story. We produce everything from blog posts and articles to video scripts and social media copy that engages and converts.</p>
     </div>
     <div class="service-card reveal delay-3">
-      <div class="service-icon">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"/></svg>
-      </div>
-      <div class="service-number">03</div>
       <h3>Social Media</h3>
       <p>Strategic social media management that builds communities and drives engagement. We create, schedule, and optimize content across all major platforms.</p>
     </div>
     <div class="service-card reveal delay-4">
-      <div class="service-icon">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-      </div>
-      <div class="service-number">04</div>
       <h3>Resume Builder</h3>
       <p>Professional resume design and optimization that helps you stand out. ATS-friendly formats combined with compelling layouts that get you noticed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Web Development -->
+<section class="webdev" id="webdev">
+  <div class="section-label reveal">Development</div>
+  <h2 class="section-title reveal delay-1">We Build The<br><span style="color:var(--accent)">Digital Future</span></h2>
+  <p class="webdev-sub reveal delay-2">From a simple landing page to full-scale platforms — we design, develop and deliver digital solutions that work.</p>
+  <div class="webdev-grid">
+    <div class="webdev-item reveal delay-1">
+      <h3>Websites</h3>
+      <p>Custom-built websites with modern design, blazing fast performance, fully responsive and SEO-optimized. From landing pages to corporate sites.</p>
+      <div class="webdev-tags">
+        <span>React</span>
+        <span>FastAPI</span>
+        <span>Responsive</span>
+      </div>
+    </div>
+    <div class="webdev-item reveal delay-2">
+      <h3>E-Commerce</h3>
+      <p>Complete online stores with payment gateways, inventory management and seamless checkout experiences that convert visitors into customers.</p>
+      <div class="webdev-tags">
+        <span>React</span>
+        <span>Spring Boot</span>
+        <span>PostgreSQL</span>
+      </div>
+    </div>
+    <div class="webdev-item reveal delay-3">
+      <h3>Web Applications</h3>
+      <p>Full-stack web applications, dashboards, SaaS platforms and custom tools. Scalable architecture built with a modern tech stack.</p>
+      <div class="webdev-tags">
+        <span>React</span>
+        <span>Spring Boot</span>
+        <span>FastAPI</span>
+        <span>PostgreSQL</span>
+      </div>
+    </div>
+    <div class="webdev-item reveal delay-4">
+      <h3>Mobile Apps</h3>
+      <p>Native and cross-platform mobile applications for iOS & Android. From concept and design all the way to deployment on the app stores.</p>
+      <div class="webdev-tags">
+        <span>React Native</span>
+        <span>iOS</span>
+        <span>Android</span>
+      </div>
     </div>
   </div>
 </section>
