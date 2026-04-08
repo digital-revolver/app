@@ -1426,6 +1426,21 @@ section {
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
   }
+
+  /* On mobile, use simple fade-up instead of translateX slides */
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(25px);
+  }
+
+  /* Ensure animation visuals are always visible on mobile */
+  .philosophy-visual,
+  .contact-visual,
+  .hero-visual,
+  .about-text {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 430px) {
