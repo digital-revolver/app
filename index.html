@@ -1427,19 +1427,16 @@ section {
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  /* On mobile, use simple fade-up instead of translateX slides */
+  /* On mobile, make everything visible — no hidden reveals */
+  .reveal,
   .reveal-left,
-  .reveal-right {
-    transform: translateY(25px);
-  }
-
-  /* Ensure animation visuals are always visible on mobile */
-  .philosophy-visual,
-  .contact-visual,
-  .hero-visual,
-  .about-text {
+  .reveal-right,
+  .reveal.active,
+  .reveal-left.active,
+  .reveal-right.active {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
 }
 
@@ -1466,21 +1463,19 @@ section {
   }
 }
 
-/* Reduce motion for accessibility & battery */
+/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .reveal, .reveal-left, .reveal-right {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
+  .hero-gradient { animation: none; }
 }
 
 /* Hide cursor glow on touch devices */
 @media (hover: none) and (pointer: coarse) {
   .cursor-glow { display: none; }
-  /* Reduce animation complexity on mobile for battery */
-  .hero-orbit { border-style: solid; }
-  .hero-gradient { animation: none; }
 }
 
 /* Mobile nav */
