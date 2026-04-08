@@ -523,13 +523,9 @@ section {
 }
 
 .services-scroll {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  overflow-x: auto;
-  padding-bottom: 2rem;
-  scroll-snap-type: x mandatory;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .services-scroll::-webkit-scrollbar {
@@ -537,8 +533,6 @@ section {
 }
 
 .service-card {
-  flex: 0 0 clamp(280px, 28vw, 380px);
-  scroll-snap-align: start;
   padding: 2rem;
   background: var(--surface);
   border: 1px solid rgba(255,255,255,0.04);
@@ -837,9 +831,8 @@ section {
 
 .work-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 }
 
 .work-item {
@@ -847,42 +840,41 @@ section {
   overflow: hidden;
   cursor: pointer;
   background: var(--surface);
-}
-
-.work-item:nth-child(1) {
-  grid-row: span 2;
-  min-height: 450px;
-}
-
-.work-item:nth-child(2) {
-  min-height: 215px;
-}
-
-.work-item:nth-child(3) {
-  min-height: 215px;
+  border: 1px solid rgba(255,255,255,0.04);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
 }
 
 .work-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease, filter 0.5s ease;
-  filter: grayscale(0.2) brightness(0.8);
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: grayscale(0.3) brightness(0.85);
 }
 
 .work-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.1);
   filter: grayscale(0) brightness(1);
+}
+
+.work-item:hover {
+  border-color: rgba(168,85,247,0.2);
+  box-shadow: 0 10px 40px rgba(168,85,247,0.1);
+  transform: translateY(-4px);
 }
 
 .work-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,10,11,0.9) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(10,10,15,0.95) 0%, rgba(10,10,15,0.4) 50%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
+  padding: 1.25rem;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -891,18 +883,14 @@ section {
   opacity: 1;
 }
 
-.work-item:hover {
-  box-shadow: 0 0 50px rgba(168,85,247,0.1);
-}
-
 .work-overlay h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 
 .work-overlay p {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -1075,13 +1063,12 @@ section {
     border-right: none;
   }
   .work-grid {
-    grid-template-columns: 1fr;
-  }
-  .work-item:nth-child(1) {
-    grid-row: span 1;
-    min-height: 350px;
+    grid-template-columns: repeat(2, 1fr);
   }
   .webdev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services-scroll {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1122,8 +1109,8 @@ section {
   .about-decorative { display: none; }
 
   .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .services-scroll { grid-template-columns: 1fr; }
   .service-card {
-    flex: 0 0 85vw;
     padding: 1.5rem;
   }
   .service-number { font-size: 2.5rem; }
@@ -1138,11 +1125,7 @@ section {
   .philosophy-content p { font-size: 1.05rem; }
 
   .work-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .work-item:nth-child(1),
-  .work-item:nth-child(2),
-  .work-item:nth-child(3) {
-    min-height: 200px;
-  }
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
 
   .contact-info h3 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
   .contact-socials { gap: 1rem; }
@@ -1163,7 +1146,6 @@ section {
   .hero h1 { font-size: 2.2rem; }
   .hero-sub { font-size: 0.85rem; }
   .hero-circle { width: 170px; height: 170px; }
-  .service-card { flex: 0 0 90vw; }
   section { padding: 2.5rem 1rem; }
 }
 
@@ -1374,6 +1356,7 @@ section {
         <span>Spring Boot</span>
         <span>FastAPI</span>
         <span>PostgreSQL</span>
+        <span>ELASTIC SEARCH</span>
       </div>
     </div>
     <div class="webdev-item reveal delay-4">
@@ -1432,25 +1415,53 @@ section {
     </div>
   </div>
   <div class="work-grid">
-    <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="work-item reveal delay-1">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a0a2e 0%, #2d1654 50%, #4c1d95 100%);"></div>
+    <a href="https://www.kiriazis.eu/" target="_blank" class="work-item reveal delay-1">
+      <img src="images/kyriazis_site.png" alt="Kiriazis">
       <div class="work-overlay">
-        <h3>Brand Identity</h3>
-        <p>Visual Design</p>
+        <h3>Kiriazis</h3>
+        <p>Website</p>
       </div>
     </a>
-    <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="work-item reveal delay-2">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--surface) 0%, rgba(168,85,247,0.15) 100%);"></div>
+    <a href="https://www.instagram.com/xenios_chalets/" target="_blank" class="work-item reveal delay-2">
+      <img src="images/xenios_site.png" alt="Xenios Chalets">
       <div class="work-overlay">
-        <h3>Social Campaign</h3>
-        <p>Content Strategy</p>
+        <h3>Xenios Chalets</h3>
+        <p>Social Media</p>
       </div>
     </a>
-    <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="work-item reveal delay-3">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--surface) 0%, rgba(216,180,254,0.1) 100%);"></div>
+    <a href="https://www.instagram.com/acktion_cafe_bistro/" target="_blank" class="work-item reveal delay-3">
+      <img src="images/acktion_cafe_site.png" alt="Acktion Cafe Bistro">
       <div class="work-overlay">
-        <h3>Web Experience</h3>
-        <p>UI/UX Design</p>
+        <h3>Acktion Cafe Bistro</h3>
+        <p>Social Media</p>
+      </div>
+    </a>
+    <a href="https://www.airbnb.gr/rooms/744623775736161899?source_impression_id=p3_1699357804_sOLt9C5I7iCC0PX" target="_blank" class="work-item reveal delay-4">
+      <img src="images/rbnb_site.png" alt="Airbnb Listing">
+      <div class="work-overlay">
+        <h3>Airbnb Listing</h3>
+        <p>Hospitality</p>
+      </div>
+    </a>
+    <a href="https://www.sbsport.gr/" target="_blank" class="work-item reveal delay-1">
+      <img src="images/sbsport.png" alt="SB Sport">
+      <div class="work-overlay">
+        <h3>SB Sport</h3>
+        <p>E-Commerce</p>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/theocar_com/" target="_blank" class="work-item reveal delay-2">
+      <img src="images/theocar_site.png" alt="Theocar">
+      <div class="work-overlay">
+        <h3>Theocar</h3>
+        <p>Social Media</p>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/sfikas_ypodimata/" target="_blank" class="work-item reveal delay-3">
+      <img src="images/primo_sfikas_site.png" alt="Sfikas Ypodimata">
+      <div class="work-overlay">
+        <h3>Sfikas Ypodimata</h3>
+        <p>Social Media</p>
       </div>
     </a>
   </div>
