@@ -331,66 +331,109 @@ body::before {
   position: relative;
   z-index: 2;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.hero-circle {
-  width: clamp(250px, 28vw, 400px);
-  height: clamp(250px, 28vw, 400px);
-  border-radius: 50%;
-  border: 1px solid rgba(168,85,247,0.15);
-  position: relative;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  animation: rotateSlow 30s linear infinite;
+  align-items: center;
 }
 
-@keyframes rotateSlow {
+.hero-anim {
+  position: relative;
+  width: clamp(260px, 28vw, 380px);
+  height: clamp(260px, 28vw, 380px);
+}
+
+/* Outer dashed ring */
+.hero-orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(168,85,247,0.12);
+  animation: heroSpin 35s linear infinite;
+}
+
+.hero-orbit::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 18px var(--accent);
+}
+
+/* Middle solid ring */
+.hero-orbit-mid {
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  right: 18%;
+  bottom: 18%;
+  border-radius: 50%;
+  border: 1px solid rgba(216,180,254,0.08);
+  animation: heroSpin 22s linear infinite reverse;
+}
+
+.hero-orbit-mid::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent-2);
+}
+
+/* Inner ring */
+.hero-orbit-inner {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  right: 35%;
+  bottom: 35%;
+  border-radius: 50%;
+  border: 1px solid rgba(168,85,247,0.06);
+  animation: heroSpin 15s linear infinite;
+}
+
+/* Center breathing orb */
+.hero-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 70%);
+  animation: heroBreathe 4s ease-in-out infinite;
+}
+
+.hero-center::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(168,85,247,0.6);
+}
+
+@keyframes heroSpin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.hero-circle::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: var(--accent);
-  border-radius: 50%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 20px var(--accent);
-}
-
-.hero-circle-inner {
-  width: 65%;
-  height: 65%;
-  border-radius: 50%;
-  border: 1px solid rgba(216,180,254,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: rotateSlow 20s linear infinite reverse;
-}
-
-.hero-circle-inner::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--accent-2);
-  border-radius: 50%;
-  top: 10%;
-  right: 10%;
-  box-shadow: 0 0 15px var(--accent-2);
-}
-
-.hero-circle-svg {
-  animation: rotateSlow 30s linear infinite;
-  opacity: 0.9;
+@keyframes heroBreathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.6); opacity: 1; }
 }
 
 /* ============ SECTION COMMON ============ */
@@ -781,16 +824,143 @@ section {
 /* ============ PHILOSOPHY ============ */
 .philosophy {
   position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.philosophy-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+}
+
+.philosophy-anim {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+/* Morphing shape */
+.phil-morph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(168,85,247,0.2);
+  animation: philMorph 8s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(168,85,247,0.05);
+}
+
+.phil-morph::before {
+  content: '';
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(216,180,254,0.15);
+  animation: philMorph 8s ease-in-out infinite reverse;
+}
+
+/* Rotating accent square */
+.phil-square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid rgba(168,85,247,0.07);
+  animation: philRotate 20s linear infinite;
+}
+
+.phil-square::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-2);
+}
+
+/* Center dot */
+.phil-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(168,85,247,0.5);
+  animation: philDotPulse 3s ease-in-out infinite;
+}
+
+/* Subtle cross lines */
+.phil-cross {
+  position: absolute;
+  inset: 0;
+}
+
+.phil-cross::before,
+.phil-cross::after {
+  content: '';
+  position: absolute;
+  background: rgba(168,85,247,0.05);
+}
+
+.phil-cross::before {
+  top: 20%;
+  bottom: 20%;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.phil-cross::after {
+  left: 20%;
+  right: 20%;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+@keyframes philMorph {
+  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+}
+
+@keyframes philRotate {
+  from { transform: translate(-50%, -50%) rotate(45deg); }
+  to { transform: translate(-50%, -50%) rotate(405deg); }
+}
+
+@keyframes philDotPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(168,85,247,0.3); transform: translate(-50%, -50%) scale(1); }
+  50% { box-shadow: 0 0 30px rgba(168,85,247,0.6); transform: translate(-50%, -50%) scale(1.3); }
+}
+
+.philosophy-text .section-label {
+  margin-bottom: 0.5rem;
 }
 
 .philosophy-content {
-  max-width: 800px;
-  margin-left: auto;
-  padding: 2rem 0;
+  max-width: 100%;
+  padding: 1rem 0;
 }
 
 .philosophy-content p {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
   line-height: 1.8;
   font-weight: 300;
   color: var(--muted);
@@ -807,14 +977,28 @@ section {
   font-weight: 500;
 }
 
-.philosophy-line {
-  position: absolute;
-  top: 50%;
-  left: 3rem;
-  width: 1px;
-  height: 60%;
-  transform: translateY(-50%);
-  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+@media (max-width: 1024px) {
+  .philosophy {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .philosophy-visual {
+    min-height: 250px;
+    order: 1;
+  }
+  .philosophy .section-label {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .philosophy-anim {
+    width: 220px;
+    height: 220px;
+  }
+  .philosophy-visual {
+    min-height: 200px;
+  }
 }
 
 /* ============ WORK ============ */
@@ -1097,7 +1281,7 @@ section {
     padding: 0.85rem 2rem;
     font-size: 0.8rem;
   }
-  .hero-circle {
+  .hero-anim {
     width: 200px;
     height: 200px;
   }
@@ -1120,10 +1304,6 @@ section {
 
   .why-item { padding: 1.5rem 1.25rem; }
 
-  .philosophy-line { display: none; }
-  .philosophy-content { margin-left: 0; padding: 1rem 0; }
-  .philosophy-content p { font-size: 1.05rem; }
-
   .work-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -1145,7 +1325,7 @@ section {
 @media (max-width: 390px) {
   .hero h1 { font-size: 2.2rem; }
   .hero-sub { font-size: 0.85rem; }
-  .hero-circle { width: 170px; height: 170px; }
+  .hero-anim { width: 170px; height: 170px; }
   section { padding: 2.5rem 1rem; }
 }
 
@@ -1241,18 +1421,11 @@ section {
     </a>
   </div>
   <div class="hero-visual">
-    <div class="hero-circle">
-      <div class="hero-circle-inner">
-        <svg class="hero-circle-svg" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="30" cy="30" r="18" stroke="rgba(168,85,247,0.3)" stroke-width="0.5"/>
-          <circle cx="30" cy="30" r="8" stroke="rgba(216,180,254,0.4)" stroke-width="0.5"/>
-          <circle cx="30" cy="30" r="2" fill="var(--accent)"/>
-          <line x1="30" y1="4" x2="30" y2="20" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
-          <line x1="30" y1="40" x2="30" y2="56" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
-          <line x1="4" y1="30" x2="20" y2="30" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
-          <line x1="40" y1="30" x2="56" y2="30" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
-        </svg>
-      </div>
+    <div class="hero-anim">
+      <div class="hero-orbit"></div>
+      <div class="hero-orbit-mid"></div>
+      <div class="hero-orbit-inner"></div>
+      <div class="hero-center"></div>
     </div>
   </div>
 </section>
@@ -1396,13 +1569,24 @@ section {
 
 <!-- Philosophy -->
 <section class="philosophy" id="philosophy">
-  <div class="philosophy-line"></div>
-  <div class="section-label reveal">Our Philosophy</div>
-  <h2 class="section-title reveal delay-1">Ideas Into<br><span style="color:var(--accent)">Reality</span></h2>
-  <div class="philosophy-content">
-    <p class="reveal delay-1">We believe in a <span class="hl">collaborative approach</span>, and are aware of the trends, working closely with our clients to understand their unique needs.</p>
-    <p class="reveal delay-2">Our process is <span class="hl-2">transparent</span>, <span class="hl-2">data-driven</span>, and <span class="hl-2">results-oriented</span>.</p>
-    <p class="reveal delay-3">We're not just about ideas — we're about <span class="hl">making ideas happen</span>.</p>
+  <!-- Left: Text -->
+  <div class="philosophy-text reveal-left">
+    <div class="section-label">Our Philosophy</div>
+    <h2 class="section-title">Ideas Into<br><span style="color:var(--accent)">Reality</span></h2>
+    <div class="philosophy-content">
+      <p>We believe in a <span class="hl">collaborative approach</span>, and are aware of the trends, working closely with our clients to understand their unique needs.</p>
+      <p>Our process is <span class="hl-2">transparent</span>, <span class="hl-2">data-driven</span>, and <span class="hl-2">results-oriented</span>.</p>
+      <p>We're not just about ideas — we're about <span class="hl">making ideas happen</span>.</p>
+    </div>
+  </div>
+  <!-- Right: Animation -->
+  <div class="philosophy-visual reveal-right">
+    <div class="philosophy-anim">
+      <div class="phil-morph"></div>
+      <div class="phil-square"></div>
+      <div class="phil-dot"></div>
+      <div class="phil-cross"></div>
+    </div>
   </div>
 </section>
 
