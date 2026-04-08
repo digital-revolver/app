@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+
+<!-- SEO -->
+<title>digital • revolver — Creative Digital Studio</title>
+<meta name="description" content="DIGITAL REVOLVER is a creative digital studio specializing in graphics, logos, content creation, social media management, and resume building. Time to (R)EVOLVE your business.">
+<meta name="keywords" content="digital marketing, creative studio, graphic design, logo design, social media, content creation, branding, resume builder, digital revolver">
+<meta name="author" content="Digital Revolver">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://digital-revolver.github.io/app/">
+
+<!-- Open Graph (Facebook, Messenger, WhatsApp, Viber, iMessage, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digital-revolver.github.io/app/">
+<meta property="og:title" content="digital • revolver — Creative Digital Studio">
+<meta property="og:description" content="Time to (R)EVOLVE your business and dominate the digital landscape. Graphics, Content, Social Media & more.">
+<meta property="og:image" content="https://digital-revolver.github.io/app/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Digital Revolver — Creative Digital Studio">
+<meta property="og:site_name" content="Digital Revolver">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="digital • revolver — Creative Digital Studio">
+<meta name="twitter:description" content="Time to (R)EVOLVE your business and dominate the digital landscape.">
+<meta name="twitter:image" content="https://digital-revolver.github.io/app/images/og-image.png">
+
+<!-- LinkedIn specific -->
+<meta property="og:image:type" content="image/png">
+<meta name="author" content="Digital Revolver">
+
+<!-- Apple / iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Digital Revolver">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logo_purple.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/logo_purple.png">
+
+<!-- Theme Color (address bar color on mobile) -->
+<meta name="theme-color" content="#0A0A0F">
+<meta name="msapplication-TileColor" content="#0A0A0F">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Digital Revolver",
+  "url": "https://digital-revolver.github.io/app",
+  "logo": "https://digital-revolver.github.io/app/images/logo_purple.png",
+  "description": "Creative digital studio specializing in graphics, logos, content creation, social media management, and resume building.",
+  "sameAs": [
+    "https://www.instagram.com/digital.revolver/",
+    "https://www.facebook.com/people/Digital-Revolver/100087671921495/",
+    "https://linktr.ee/digitalrevolver"
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0A0A0F;
+  --surface: #16141F;
+  --accent: #A855F7;
+  --accent-2: #D8B4FE;
+  --text: #F5F5F7;
+  --muted: #8A8F98;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============ NOISE OVERLAY ============ */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ============ NAVBAR ============ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  background: rgba(10,10,11,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 3rem;
+  background: rgba(10,10,11,0.92);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
+
+.nav-logo span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-logo .accent {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav-hamburger span {
+  width: 28px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 7rem 6rem 3rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient {
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, rgba(216,180,254,0.05) 40%, transparent 70%);
+  animation: heroFloat 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-30px, 20px) scale(1.05); }
+  66% { transform: translate(20px, -30px) scale(0.95); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 .outline-text {
+  -webkit-text-stroke: 1.5px var(--text);
+  color: transparent;
+}
+
+.hero h1 .accent-word {
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.hero-sub strong {
+  color: var(--accent-2);
+  font-weight: 500;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta:hover {
+  box-shadow: 0 0 40px rgba(168,85,247,0.4);
+  transform: translateY(-2px);
+}
+
+.hero-cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta:hover svg {
+  transform: translateX(4px);
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero-circle {
+  width: clamp(250px, 28vw, 400px);
+  height: clamp(250px, 28vw, 400px);
+  border-radius: 50%;
+  border: 1px solid rgba(168,85,247,0.15);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateSlow 30s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-circle::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.hero-circle-inner {
+  width: 65%;
+  height: 65%;
+  border-radius: 50%;
+  border: 1px solid rgba(216,180,254,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateSlow 20s linear infinite reverse;
+}
+
+.hero-circle-inner::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  top: 10%;
+  right: 10%;
+  box-shadow: 0 0 15px var(--accent-2);
+}
+
+.hero-circle-svg {
+  animation: rotateSlow 30s linear infinite;
+  opacity: 0.9;
+}
+
+/* ============ SECTION COMMON ============ */
+section {
+  padding: clamp(3rem, 5vw, 5rem) 3rem;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+/* ============ ABOUT ============ */
+.about {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.about-text p:first-of-type {
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: var(--text);
+  font-weight: 400;
+}
+
+.about-visual {
+  position: relative;
+  height: 400px;
+}
+
+.about-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.about-img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(216,180,254,0.05));
+  z-index: 1;
+}
+
+.about-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.3);
+}
+
+.about-decorative {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(168,85,247,0.2);
+  z-index: -1;
+}
+
+.about-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.stat h3 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.stat p {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* ============ SERVICES ============ */
+.services {
+  position: relative;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.services-header .section-title {
+  max-width: 500px;
+}
+
+.services-scroll {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.services-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.service-card {
+  flex: 0 0 clamp(280px, 28vw, 380px);
+  scroll-snap-align: start;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  border-color: rgba(168,85,247,0.15);
+  box-shadow: 0 10px 60px rgba(168,85,247,0.07);
+  transform: translateY(-5px);
+}
+
+.service-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(168,85,247,0.2);
+  color: var(--accent);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 30px rgba(168,85,247,0.3);
+}
+
+/* ============ WHY US ============ */
+.why-us {
+  position: relative;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.why-item {
+  padding: 2rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+.why-item:last-child {
+  border-right: none;
+}
+
+.why-item:hover {
+  background: rgba(168,85,247,0.02);
+}
+
+.why-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.5s ease;
+}
+
+.why-item:hover::before {
+  width: 100%;
+}
+
+.why-icon {
+  width: 2px;
+  height: 40px;
+  background: var(--accent);
+  margin-bottom: 1.5rem;
+  transition: height 0.3s ease;
+}
+
+.why-item:hover .why-icon {
+  height: 50px;
+  box-shadow: 0 0 15px rgba(168,85,247,0.3);
+}
+
+.why-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.3px;
+}
+
+.why-item p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ============ PHILOSOPHY ============ */
+.philosophy {
+  position: relative;
+}
+
+.philosophy-content {
+  max-width: 800px;
+  margin-left: auto;
+  padding: 2rem 0;
+}
+
+.philosophy-content p {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.philosophy-content .hl {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.philosophy-content .hl-2 {
+  color: var(--accent-2);
+  font-weight: 500;
+}
+
+.philosophy-line {
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  width: 1px;
+  height: 60%;
+  transform: translateY(-50%);
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+}
+
+/* ============ WORK ============ */
+.work {
+  position: relative;
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--surface);
+}
+
+.work-item:nth-child(1) {
+  grid-row: span 2;
+  min-height: 450px;
+}
+
+.work-item:nth-child(2) {
+  min-height: 215px;
+}
+
+.work-item:nth-child(3) {
+  min-height: 215px;
+}
+
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, filter 0.5s ease;
+  filter: grayscale(0.2) brightness(0.8);
+}
+
+.work-item:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0) brightness(1);
+}
+
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,11,0.9) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.work-item:hover .work-overlay {
+  opacity: 1;
+}
+
+.work-item:hover {
+  box-shadow: 0 0 50px rgba(168,85,247,0.1);
+}
+
+.work-overlay h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.work-overlay p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.work-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  transition: gap 0.3s ease;
+}
+
+.work-cta:hover {
+  gap: 1.2rem;
+}
+
+/* ============ CONTACT ============ */
+.contact {
+  position: relative;
+  text-align: center;
+}
+
+.contact .section-label {
+  justify-content: center;
+}
+
+.contact-info {
+  margin-top: 2rem;
+}
+
+.contact-info h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.contact-socials {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 20px rgba(168,85,247,0.1);
+  transform: translateY(-2px);
+}
+
+
+/* ============ FOOTER ============ */
+.footer {
+  padding: 2rem 3rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer-back {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-back:hover {
+  color: var(--accent);
+}
+
+/* ============ ANIMATIONS ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ============ CURSOR GLOW ============ */
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 7rem 2rem 3rem;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-tag { justify-content: center; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .about {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-item {
+    border-right: none;
+  }
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  .work-item:nth-child(1) {
+    grid-row: span 1;
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  section { padding: 3rem 1.25rem; }
+  .navbar { padding: 0.85rem 1.25rem; }
+  .navbar.scrolled { padding: 0.7rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-logo img { height: 30px; }
+  .nav-logo span { font-size: 0.95rem; }
+
+  .hero {
+    min-height: calc(100vh - 60px);
+    min-height: calc(100svh - 60px);
+    padding: 5.5rem 1.25rem 2rem;
+    gap: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    letter-spacing: -1px;
+  }
+  .hero-sub { font-size: 0.9rem; }
+  .hero-cta {
+    padding: 0.85rem 2rem;
+    font-size: 0.8rem;
+  }
+  .hero-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section-title { font-size: clamp(1.6rem, 7vw, 2.5rem); }
+
+  .about-visual { height: 280px; }
+  .about-stats { flex-direction: column; gap: 1.5rem; }
+  .about-decorative { display: none; }
+
+  .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .service-card {
+    flex: 0 0 85vw;
+    padding: 1.5rem;
+  }
+  .service-number { font-size: 2.5rem; }
+
+  .why-item { padding: 1.5rem 1.25rem; }
+
+  .philosophy-line { display: none; }
+  .philosophy-content { margin-left: 0; padding: 1rem 0; }
+  .philosophy-content p { font-size: 1.05rem; }
+
+  .work-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .work-item:nth-child(1),
+  .work-item:nth-child(2),
+  .work-item:nth-child(3) {
+    min-height: 200px;
+  }
+
+  .contact-info h3 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  .contact-socials { gap: 1rem; }
+  .social-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem 1.25rem; }
+
+  /* iOS safe areas */
+  .hero { padding-top: calc(5.5rem + env(safe-area-inset-top)); }
+  .footer { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+  .navbar { padding-top: calc(0.85rem + env(safe-area-inset-top)); }
+}
+
+@media (max-width: 390px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero-sub { font-size: 0.85rem; }
+  .hero-circle { width: 170px; height: 170px; }
+  .service-card { flex: 0 0 90vw; }
+  section { padding: 2.5rem 1rem; }
+}
+
+/* Hide cursor glow on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-glow { display: none; }
+}
+
+/* Mobile nav */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,11,0.97);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#work" onclick="closeMobileNav()">Work</a>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="images/logo_purple.png" alt="digital revolver logo">
+    <span>digital • <span class="accent">revolver</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Creative Studio</div>
+    <h1>
+      <span class="outline-text">REVOLVE</span><br>
+      AROUND<br>
+      <span class="accent-word">SUCCESS</span>
+    </h1>
+    <p class="hero-sub">TIME TO <strong>(R)EVOLVE</strong> YOUR BUSINESS AND DOMINATE THE DIGITAL LANDSCAPE.</p>
+    <a href="#about" class="hero-cta">
+      Read More
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+      </svg>
+    </a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-circle">
+      <div class="hero-circle-inner">
+        <svg class="hero-circle-svg" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="18" stroke="rgba(168,85,247,0.3)" stroke-width="0.5"/>
+          <circle cx="30" cy="30" r="8" stroke="rgba(216,180,254,0.4)" stroke-width="0.5"/>
+          <circle cx="30" cy="30" r="2" fill="var(--accent)"/>
+          <line x1="30" y1="4" x2="30" y2="20" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
+          <line x1="30" y1="40" x2="30" y2="56" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
+          <line x1="4" y1="30" x2="20" y2="30" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
+          <line x1="40" y1="30" x2="56" y2="30" stroke="rgba(168,85,247,0.25)" stroke-width="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="about-text reveal-left">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">We Are Your<br>Digital <span style="color:var(--accent)">Allies</span></h2>
+    <p>At DIGITAL REVOLVER, we are not just a digital marketing agency — we are your partners in the ever-evolving digital landscape, your allies in the digital domain.</p>
+    <p>Our mission is to arm businesses and individuals with the tools and strategies they need to thrive online.</p>
+    <div class="about-stats">
+      <div class="stat">
+        <h3>50+</h3>
+        <p>Projects Done</p>
+      </div>
+      <div class="stat">
+        <h3>100%</h3>
+        <p>Client Satisfaction</p>
+      </div>
+      <div class="stat">
+        <h3>24/7</h3>
+        <p>Support</p>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual reveal-right">
+    <div class="about-img-wrapper">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a0a2e 0%, #2d1654 50%, #4c1d95 100%);display:flex;align-items:center;justify-content:center;">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="55" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+          <circle cx="60" cy="60" r="35" stroke="rgba(216,180,254,0.15)" stroke-width="1"/>
+          <circle cx="60" cy="60" r="15" fill="rgba(168,85,247,0.15)"/>
+          <line x1="5" y1="60" x2="115" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <line x1="60" y1="5" x2="60" y2="115" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="about-decorative"></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label reveal">What We Do</div>
+      <h2 class="section-title reveal delay-1">Services That<br><span style="color:var(--accent)">Transform</span></h2>
+    </div>
+    <p class="reveal delay-2" style="max-width:350px;color:var(--muted);font-size:0.9rem;line-height:1.7;font-weight:300;">We craft digital experiences that push boundaries and deliver results.</p>
+  </div>
+  <div class="services-scroll">
+    <div class="service-card reveal delay-1">
+      <div class="service-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.764m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+      </div>
+      <div class="service-number">01</div>
+      <h3>Graphics & Logos</h3>
+      <p>Crafting unique visual identities that resonate with your brand's essence. From logos to full brand guidelines, we bring your vision to life with precision and creativity.</p>
+    </div>
+    <div class="service-card reveal delay-2">
+      <div class="service-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/></svg>
+      </div>
+      <div class="service-number">02</div>
+      <h3>Content Creation</h3>
+      <p>Compelling content that tells your story. We produce everything from blog posts and articles to video scripts and social media copy that engages and converts.</p>
+    </div>
+    <div class="service-card reveal delay-3">
+      <div class="service-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"/></svg>
+      </div>
+      <div class="service-number">03</div>
+      <h3>Social Media</h3>
+      <p>Strategic social media management that builds communities and drives engagement. We create, schedule, and optimize content across all major platforms.</p>
+    </div>
+    <div class="service-card reveal delay-4">
+      <div class="service-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+      </div>
+      <div class="service-number">04</div>
+      <h3>Resume Builder</h3>
+      <p>Professional resume design and optimization that helps you stand out. ATS-friendly formats combined with compelling layouts that get you noticed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section class="why-us" id="why-us">
+  <div class="section-label reveal">Why Choose Us</div>
+  <h2 class="section-title reveal delay-1">Built Different,<br><span style="color:var(--accent-2)">By Design</span></h2>
+  <div class="why-grid">
+    <div class="why-item reveal delay-1">
+      <div class="why-icon"></div>
+      <h3>Expertise</h3>
+      <p>Our team consists of seasoned professionals who are passionate about digital innovation. We bring years of experience and a wealth of knowledge to every project.</p>
+    </div>
+    <div class="why-item reveal delay-2">
+      <div class="why-icon"></div>
+      <h3>Customization</h3>
+      <p>We don't believe in one-size-fits-all solutions. Every strategy we develop is tailored to your specific goals, audience, and industry requirements.</p>
+    </div>
+    <div class="why-item reveal delay-3">
+      <div class="why-icon"></div>
+      <h3>Support</h3>
+      <p>We are with you every step of the way. From inception to execution, and beyond — our dedicated support team ensures your success is continuous.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="philosophy" id="philosophy">
+  <div class="philosophy-line"></div>
+  <div class="section-label reveal">Our Philosophy</div>
+  <h2 class="section-title reveal delay-1">Ideas Into<br><span style="color:var(--accent)">Reality</span></h2>
+  <div class="philosophy-content">
+    <p class="reveal delay-1">We believe in a <span class="hl">collaborative approach</span>, and are aware of the trends, working closely with our clients to understand their unique needs.</p>
+    <p class="reveal delay-2">Our process is <span class="hl-2">transparent</span>, <span class="hl-2">data-driven</span>, and <span class="hl-2">results-oriented</span>.</p>
+    <p class="reveal delay-3">We're not just about ideas — we're about <span class="hl">making ideas happen</span>.</p>
+  </div>
+</section>
+
+<!-- Work -->
+<section class="work" id="work">
+  <div class="work-header">
+    <div>
+      <div class="section-label reveal">Our Work</div>
+      <h2 class="section-title reveal delay-1">Selected<br><span style="color:var(--accent)">Projects</span></h2>
+    </div>
+  </div>
+  <div class="work-grid">
+    <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="work-item reveal delay-1">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg, #1a0a2e 0%, #2d1654 50%, #4c1d95 100%);"></div>
+      <div class="work-overlay">
+        <h3>Brand Identity</h3>
+        <p>Visual Design</p>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="work-item reveal delay-2">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--surface) 0%, rgba(168,85,247,0.15) 100%);"></div>
+      <div class="work-overlay">
+        <h3>Social Campaign</h3>
+        <p>Content Strategy</p>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="work-item reveal delay-3">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--surface) 0%, rgba(216,180,254,0.1) 100%);"></div>
+      <div class="work-overlay">
+        <h3>Web Experience</h3>
+        <p>UI/UX Design</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="section-label reveal">Get In Touch</div>
+  <h2 class="section-title reveal delay-1">Let's <span style="color:var(--accent)">Talk</span></h2>
+  <div class="contact-info reveal delay-2">
+    <h3>Ready to revolve<br>your digital presence?</h3>
+    <div class="contact-socials">
+        <a href="mailto:hello@digitalrevolver.studio" class="social-link" aria-label="Email">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        </a>
+        <a href="https://www.instagram.com/digital.revolver/" target="_blank" class="social-link" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/people/Digital-Revolver/100087671921495/" target="_blank" class="social-link" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://linktr.ee/digitalrevolver?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" class="social-link" aria-label="Linktree">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5108 5.85343L17.5158 1.73642L19.8404 4.11701L15.6393 8.12199H21.5488V11.4268H15.6113L19.8404 15.5765L17.5158 17.9572L13.5108 13.8121V19.768H10.2059V13.8121L6.17089 17.9572L3.84631 15.5765L8.07531 11.4268H2.16785V8.12199H8.10347L3.84631 4.11701L6.17089 1.73642L10.2059 5.85343V0H13.5108V5.85343ZM10.2059 19.768H13.5108V24H10.2059V19.768Z"/></svg>
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p class="footer-text">© 2026 digital • revolver. All rights reserved.</p>
+  <a href="#hero" class="footer-back">↑ Back to Top</a>
+</footer>
+
+<script>
+// ============ INTERSECTION OBSERVER ============
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  observer.observe(el);
+});
+
+// ============ NAVBAR SCROLL ============
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  lastScroll = currentScroll;
+});
+
+// ============ CURSOR GLOW ============
+const cursorGlow = document.getElementById('cursorGlow');
+let mouseX = 0, mouseY = 0;
+let glowX = 0, glowY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateGlow() {
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+  cursorGlow.style.left = glowX + 'px';
+  cursorGlow.style.top = glowY + 'px';
+  requestAnimationFrame(animateGlow);
+}
+animateGlow();
+
+// ============ MOBILE NAV ============
+let mobileNavOpen = false;
+
+function toggleMobileNav() {
+  mobileNavOpen = !mobileNavOpen;
+  document.getElementById('mobileNav').classList.toggle('open', mobileNavOpen);
+  document.body.style.overflow = mobileNavOpen ? 'hidden' : '';
+  const bars = document.querySelectorAll('.nav-hamburger span');
+  if (mobileNavOpen) {
+    bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    bars[1].style.opacity = '0';
+    bars[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    bars[0].style.transform = 'none';
+    bars[1].style.opacity = '1';
+    bars[2].style.transform = 'none';
+  }
+}
+
+function closeMobileNav() {
+  if (mobileNavOpen) toggleMobileNav();
+}
+
+
+// ============ SMOOTH SCROLL ============
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+

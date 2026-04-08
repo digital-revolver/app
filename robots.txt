@@ -1,0 +1,5 @@
+inUser-agent: *
+Allow: /
+Sitemap: https://digital-revolver.github.io/app/sitemap.xml
+
+
